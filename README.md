@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Original Dungeons & Dragons Character Generator
+
+Allows you to easily creat OD&D characters. Every time the application refreshes a new character will be generated.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
