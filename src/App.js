@@ -148,7 +148,7 @@ const App = () => {
     const MINIMUM_ABILITY_VALUE = 9;
 
     if (abilityScores[sourceAttribute] - basis >= MINIMUM_ABILITY_VALUE) {
-      console.log(`Reducing ${sourceAttribute} from ${abilityScores[sourceAttribute]} to ${abilityScores[sourceAttribute] - basis}`);
+      console.log(`Reducing ${sourceAttribute} from ${abilityScores[sourceAttribute]} to ${abilityScores[sourceAttribute] - basis} on a basis of ${basis} to 1`);
       console.log(`Increasing ${destinationAttribute} from ${abilityScores[destinationAttribute]} to ${abilityScores[destinationAttribute] + 1}`);
       abilityScores[sourceAttribute] -= basis;
       abilityScores[destinationAttribute] += 1;
