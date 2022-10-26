@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/odd-char-generator/static/css/main.073c9b0a.css",
-    "main.js": "/odd-char-generator/static/js/main.cb793a3d.js",
+    "main.js": "/odd-char-generator/static/js/main.70e0737b.js",
     "static/js/787.a0000d1e.chunk.js": "/odd-char-generator/static/js/787.a0000d1e.chunk.js",
     "index.html": "/odd-char-generator/index.html",
     "main.073c9b0a.css.map": "/odd-char-generator/static/css/main.073c9b0a.css.map",
-    "main.cb793a3d.js.map": "/odd-char-generator/static/js/main.cb793a3d.js.map",
+    "main.70e0737b.js.map": "/odd-char-generator/static/js/main.70e0737b.js.map",
     "787.a0000d1e.chunk.js.map": "/odd-char-generator/static/js/787.a0000d1e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.cb793a3d.js"
+    "static/js/main.70e0737b.js"
   ]
 }
