@@ -3,11 +3,20 @@ import { useState, useRef } from 'react';
 import './App.css';
 import { NumericTextBox, TextBox } from './common/components';
 import { initChar } from './chargen';
+import './custom.scss';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
+import ThemeProvider from 'react-bootstrap/ThemeProvider';
+import Stack from 'react-bootstrap/Stack';
+import Form from 'react-bootstrap/Form';
 
 const RollLog = ({ log }) => {
   const counter = useRef(0);
   return (
-    <div style={{ float: 'left', width: "60%", height: "100%" }}>{log ? log.map(l => <div key={`${counter.current++}`}>{l}</div>) : ''}</div>
+    <>
+      {log ? log.map(l => <Row key={`${counter.current++}`}>{l}</Row>) : null}
+    </>
   );
 }
 
@@ -18,22 +27,26 @@ const App = () => {
   const handleOnChange = () => { }
 
   return (
-    <>
-      <div style={{ float: "left", height: "100%" }}>
-        <form>
-          <NumericTextBox label={'STR'} style={{ width: 32 }} value={character.STR} onChange={handleOnChange} />
-          <NumericTextBox label={'INT'} style={{ width: 32 }} value={character.INT} onChange={handleOnChange} />
-          <NumericTextBox label={'WIS'} style={{ width: 32 }} value={character.WIS} onChange={handleOnChange} />
-          <NumericTextBox label={'DEX'} style={{ width: 32 }} value={character.DEX} onChange={handleOnChange} />
-          <NumericTextBox label={'CHA'} style={{ width: 32 }} value={character.CHA} onChange={handleOnChange} />
-          <NumericTextBox label={'CON'} style={{ width: 32 }} value={character.CON} onChange={handleOnChange} />
-
-          <TextBox label={'Class'} style={{ width: 80 }} value={character.charClass} />
-        </form>
-      </div>
-
-      <RollLog log={log} />
-    </>
+    <Form>
+      <ThemeProvider>
+        <Container fluid>
+          {/* <Stack direction='horizontal' gap={5}> */}
+          <Col xxl={1}>
+            <NumericTextBox label={'STR'} value={character.STR} onChange={handleOnChange} />
+            <NumericTextBox label={'INT'} value={character.INT} onChange={handleOnChange} />
+            <NumericTextBox label={'WIS'} value={character.WIS} onChange={handleOnChange} />
+            <NumericTextBox label={'DEX'} value={character.DEX} onChange={handleOnChange} />
+            <NumericTextBox label={'CHA'} value={character.CHA} onChange={handleOnChange} />
+            <NumericTextBox label={'CON'} value={character.CON} onChange={handleOnChange} />
+            <TextBox label={'Class'} style={{ width: 80 }} value={character.charClass} />
+          </Col>
+          <Col xxl={11}>
+            <RollLog log={log} />
+          </Col>
+          {/* </Stack> */}
+        </Container>
+      </ThemeProvider>
+    </Form>
   );
 }
 
