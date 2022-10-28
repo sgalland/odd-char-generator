@@ -2,7 +2,7 @@ import { ABILITIES, CLASSES } from './enums';
 
 // Initialize a new character
 export const initChar = (setLog) => {
-    const character = {
+    let character = {
         charClass: CLASSES.FIGHTER,
         [ABILITIES.STR]: rollDice(6, 3),
         [ABILITIES.INT]: rollDice(6, 3),
@@ -50,15 +50,18 @@ export const determineClass = (character, setLog) => {
 // destinationAttribute: The Attribute in which to increase by 1.
 // basis: How many points to trade on an X for 1 basis.
 // abilityScores: A reference to an object containing ability scores.
-export const reduceAbility = (sourceAttribute, destinationAttribute, basis,
-    character, setLog) => {
+export const reduceAbility = (sourceAttribute, destinationAttribute, basis, character, setLog) => {
     const MINIMUM_ABILITY_VALUE = 9;
 
     if (character[sourceAttribute] - basis >= MINIMUM_ABILITY_VALUE) {
-        setLog((prevState) => [...prevState, `Reducing ${sourceAttribute} from ${character[sourceAttribute]} to ${character[sourceAttribute] - basis} on a basis of ${basis} to 1`]);
+        const log = [];
+        log.push(`Reducing ${sourceAttribute} from ${character[sourceAttribute]} to ${character[sourceAttribute] - basis} on a basis of ${basis} to 1`);
+        log.push(`Increasing ${destinationAttribute} from ${character[destinationAttribute]} to ${character[destinationAttribute] + 1}`);
+
         character[sourceAttribute] -= basis;
-        setLog((prevState) => [...prevState, `Increasing ${destinationAttribute} from ${character[destinationAttribute]} to ${character[destinationAttribute] + 1}`]);
         character[destinationAttribute] += 1;
+
+        setLog((prevState) => [...prevState, ...log]);
     }
 };
 
